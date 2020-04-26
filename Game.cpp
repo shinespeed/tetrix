@@ -78,8 +78,7 @@ void Game::createFigure()
 
 void Game::Update(float deltaTime)
 {
-	timeStep += deltaTime;
-
-    start();
-	Render();
+       timeStep += deltaTime;
+       start();
+       Render();
 }
