@@ -3,7 +3,6 @@
 class Square
 {
 public:
-
 	Square(int x_Square, int y_Square);
 	~Square();
 
