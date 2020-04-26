@@ -55,6 +55,6 @@ void World::addFigure(Figure* figure)
 
 	arrSquare[figure->getArrSquareFigure(0)->ySquare][figure->getArrSquareFigure(0)->xSquare] = figure->getArrSquareFigure(0);
 	arrSquare[figure->getArrSquareFigure(1)->ySquare][figure->getArrSquareFigure(1)->xSquare] = figure->getArrSquareFigure(1);
-    arrSquare[figure->getArrSquareFigure(2)->ySquare][figure->getArrSquareFigure(2)->xSquare] = figure->getArrSquareFigure(2);
+        arrSquare[figure->getArrSquareFigure(2)->ySquare][figure->getArrSquareFigure(2)->xSquare] = figure->getArrSquareFigure(2);
 	arrSquare[figure->getArrSquareFigure(3)->ySquare][figure->getArrSquareFigure(3)->xSquare] = figure->getArrSquareFigure(3);
 }
