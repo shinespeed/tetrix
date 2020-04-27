@@ -16,9 +16,15 @@ public:
 	Figure* tempFigure;
 	Figure* buffFigure;
 
+	bool regulationFigure(int futureX, int futureY);
+	bool regulationSquare(int squarefutureX, int squarefutureY);
+	bool whoseSquare(int squarefutureX, int squarefutureY);
+
 	void moveFigure(const int x, const int y);
+
+	void calculationFutureXY(int &futureX, int &futureY, const int index);
 	void rotationFigure();
-	void matrixRot(int index);
+	void rotationMatrixSquare(const int index, int &numberViolation);
+
 	void addFigure(Figure* figure);
 };
-
