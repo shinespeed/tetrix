@@ -193,6 +193,6 @@ void Game::Render()
 void Game::Update(float deltaTime)
 {
 	timeStep += deltaTime;
-    start();
+        start();
 	Render();
 }
