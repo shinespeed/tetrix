@@ -13,6 +13,7 @@ const float GAME_ITERATION = 0.3;
 const int INC_POINT = 15;
 
 //key code
+const int SPACE = 80;
 const int RIGHT = 77;
 const int LEFT = 75;
 const int DOWN = 80;
