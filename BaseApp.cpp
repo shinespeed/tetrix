@@ -11,7 +11,10 @@
 
 #include "PerformanceCounter.h"
 
-BaseApp::BaseApp(int xSize, int ySize) : X_SIZE(xSize), Y_SIZE(ySize)
+BaseApp::BaseApp(int xSize, int ySize) : 
+	X_SIZE(xSize),
+	Y_SIZE(ySize), 
+	gameCheck(true)
 {
 	SMALL_RECT windowSize = {0, 0, X_SIZE, Y_SIZE};
 	COORD windowBufSize = {X_SIZE+1, Y_SIZE+1};
@@ -38,15 +41,15 @@ BaseApp::BaseApp(int xSize, int ySize) : X_SIZE(xSize), Y_SIZE(ySize)
 	mChiBuffer = (CHAR_INFO*)malloc((X_SIZE+1)*(Y_SIZE+1)*sizeof(CHAR_INFO));
 
 	mDwBufferSize.X = X_SIZE + 1;
-	mDwBufferSize.Y = Y_SIZE + 1;		// размер буфера данных
+	mDwBufferSize.Y = Y_SIZE + 1;		// СЂР°Р·РјРµСЂ Р±СѓС„РµСЂР° РґР°РЅРЅС‹С…
 
 	mDwBufferCoord.X = 0;
-	mDwBufferCoord.Y = 0;				// координаты ячейки
+	mDwBufferCoord.Y = 0;				// РєРѕРѕСЂРґРёРЅР°С‚С‹ СЏС‡РµР№РєРё
 
 	mLpWriteRegion.Left = 0;
 	mLpWriteRegion.Top = 0;
 	mLpWriteRegion.Right = X_SIZE + 1;
-	mLpWriteRegion.Bottom = Y_SIZE + 1;	// прямоугольник для чтения
+	mLpWriteRegion.Bottom = Y_SIZE + 1;	// РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє РґР»СЏ С‡С‚РµРЅРёСЏ
 
 
 	for (int x=0; x<X_SIZE+1; x++)
@@ -67,7 +70,19 @@ void BaseApp::SetChar(int x, int y, wchar_t c)
 {
 	mChiBuffer[x + (X_SIZE+1)*y].Char.UnicodeChar = c;
 	mChiBuffer[x + (X_SIZE+1)*y].Attributes = FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED;
+}
 
+void BaseApp::SetString(int x, int y, string str) 
+{
+	for (int i = 0; i < 5; i++)
+	{
+		SetChar(x + i, y, 0);
+	}
+
+	for (int i = 0; i < str.length(); i++) 
+	{
+		SetChar(x + i, y, str[i]);
+	}
 }
 
 wchar_t BaseApp::GetChar(int x, int y)
@@ -88,9 +103,9 @@ void BaseApp::Run()
 	CStopwatch timer;
 	int sum = 0;
 	int counter = 0;
-
 	int deltaTime = 0;
-	while (1)
+
+	while (gameCheck)
 	{
 		timer.Start();
 		if (_kbhit())
@@ -100,11 +115,11 @@ void BaseApp::Run()
 				cout<<"FlushConsoleInputBuffer failed with error "<<GetLastError();
 		}
 
-		Update((float)deltaTime / 1000.0f);
+		Update(static_cast<float>(deltaTime) / 1000.0f);
 		Render();
 		Sleep(1);
 
-		while (1)
+		while (true)
 		{
 			deltaTime = timer.Now();
 			if (deltaTime > 20)
