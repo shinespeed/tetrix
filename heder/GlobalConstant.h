@@ -10,7 +10,7 @@ const int ARRAY_Y = 15;
 //speed iteration game
 const float GAME_ITERATION = 0.3;
 
-const int incPoint = 15;
+const int INC_POINT = 15;
 
 const int START_COORD_X = 7;
 const int START_COORD_Y = 0;
