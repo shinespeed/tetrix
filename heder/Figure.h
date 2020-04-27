@@ -10,12 +10,15 @@ public:
 	Figure();
 	~Figure();
 
-	virtual int getXFigure() = 0;
-	virtual int getYFigure() = 0;
+	int getXFigure();
+	int getYFigure();
 
-	virtual void moveFigure(const int xFigure, const int yFigure) = 0;
+	void moveFigure(const int xFigure, const int yFigure);
+	Square* getArrSquareFigure(int index);
 
-	virtual Square* getArrSquareFigure(int index) = 0;
+	int xFigure;
+	int yFigure;
+	Square* arrSquareFigure[QUANTITY_SQUARE];
 };
 
 class TFigure : public Figure
@@ -24,51 +27,59 @@ public:
 	TFigure(int xFigure, int yFigure);
 	~TFigure();
 
-	void moveFigure(const int xFigure, const int yFigure) override;
 	void createSquareFigure();
-
-	int getXFigure() override;
-	int getYFigure() override;
-
-	Square* getArrSquareFigure(int index) override;
-
-	int xFigure;
-	int yFigure;
-
-	Square* arrSquareFigure[4];
 };
 
 class QFigure : public Figure
 {
 public:
-	QFigure();
+	QFigure(int xFigure, int yFigure);
 	~QFigure();
+
+	void createSquareFigure();
 };
 
 class IFigure : public Figure
 {
 public:
-	IFigure();
+	IFigure(int xFigure, int yFigure);
 	~IFigure();
+
+	void createSquareFigure();
 };
 
 class ZFigure : public Figure
 {
 public:
-	ZFigure();
+	ZFigure(int xFigure, int yFigure);
 	~ZFigure();
+
+	void createSquareFigure();
 };
 
 class SFigure : public Figure
 {
 public:
-	SFigure();
+	SFigure(int xFigure, int yFigure);
 	~SFigure();
+
+	void createSquareFigure();
 };
 
 class JFigure : public Figure
 {
 public:
-	JFigure();
+	JFigure(int xFigure, int yFigure);
 	~JFigure();
+
+	void createSquareFigure();
+};
+
+class LFigure : public Figure
+{
+public:
+	LFigure(int xFigure, int yFigure);
+	~LFigure();
+
+	void createSquareFigure();
 };
