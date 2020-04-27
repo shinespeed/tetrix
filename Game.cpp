@@ -1,3 +1,5 @@
+// Copyright 2009-2014 Blam BaseApps, Inc. All Rights Reserved.
+
 #include "Game.h"
 
 enum numberFigure
@@ -32,16 +34,17 @@ void Game::KeyPressed(int btnCode)
 	{
 		world.rotationFigure();
 	}
-	else if ((btnCode == 115)&&(world.regulationFigure(moveX, moveY + 1))) 
+	else if ((btnCode == DOWN)&&(world.regulationFigure(moveX, moveY + 1))) 
 	{
-		--moveY;
+		++moveY;
+		world.moveFigure(moveX, moveY);
 	}
-	else if ((btnCode == 75) && (world.regulationFigure(moveX - 1, moveY))) //a
+	else if ((btnCode == LEFT) && (world.regulationFigure(moveX - 1, moveY))) 
 	{
 		--moveX;
 		world.moveFigure(moveX, moveY);
 	}
-	else if ((btnCode == 77) && (world.regulationFigure(moveX + 1, moveY)))
+	else if ((btnCode == RIGHT) && (world.regulationFigure(moveX + 1, moveY)))
 	{
 		++moveX;
 		world.moveFigure(moveX, moveY);
