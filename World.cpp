@@ -1,11 +1,23 @@
 #include "World.h"
 
-
-World::World(){}
+World::World(): 
+	sumSquare(0), 
+	sumPoint(0)
+{}
 
 World::~World()
 {
-	delete[] arrSquare;
+	delete tempFigure;
+	for (int i = 0; i < ARRAY_Y; ++i) 
+	{
+		for (int j = 0; j < ARRAY_X; j++) 
+		{
+			if (arrSquare[i][j] != nullptr) 
+			{
+				delete arrSquare[i][j];
+			}
+		}
+	}
 }
 
 bool World::regulationFigure(int futureX, int futureY)
@@ -16,10 +28,10 @@ bool World::regulationFigure(int futureX, int futureY)
 
 	for (int i = 0; i < QUANTITY_SQUARE; i++)
 	{
-	        tempX = tempFigure->getArrSquareFigure(i)->xSquare + (futureX - tempFigure->getXFigure());
-	        tempY = tempFigure->getArrSquareFigure(i)->ySquare + (futureY - tempFigure->getYFigure());
-		
-	        if (!regulationSquare(tempX, tempY)) ++numberViolation;
+	    tempX = tempFigure->getArrSquareFigure(i)->xSquare + (futureX - tempFigure->getXFigure());
+		tempY = tempFigure->getArrSquareFigure(i)->ySquare + (futureY - tempFigure->getYFigure());
+
+		if (!regulationSquare(tempX, tempY)) ++numberViolation;
 	} 
 	if (numberViolation == 0) 
 	{
@@ -99,7 +111,6 @@ void World::rotationFigure()
 			break;
 		}
 	}
-
 	if (numberViolation == 0) 
 	{
 		for (int i = 1; i < QUANTITY_SQUARE; ++i) 
@@ -107,8 +118,45 @@ void World::rotationFigure()
 			rotationMatrixSquare(i, numberViolation);
 		}
 	}
-
 	moveFigure(tempFigure->getXFigure(), tempFigure->getYFigure());
+}
+
+void World::checkSumSquareHorizon() 
+{
+	for (int i = 0; i < ARRAY_Y; ++i) 
+	{
+		for (int j = 0; j < ARRAY_X; ++j)
+		{
+			countSumSquare(j, i);
+		}
+		if (sumSquare == ARRAY_X) 
+		{
+			delHorizonSquare(i);
+		}
+		sumSquare = 0;
+	}
+}
+
+void World::delHorizonSquare(int y) 
+{
+	sumPoint += 15;
+	for (int i = y; i > 1; --i) 
+	{
+		for (int j = 0; j < ARRAY_X; ++j) 
+		{
+			delete arrSquare[i][j];
+			arrSquare[i][j] = arrSquare[i-1][j];
+			arrSquare[i-1][j] = nullptr;
+		}
+	}
+}
+
+void World::countSumSquare(int x, int y)
+{
+	if (arrSquare[y][x] != nullptr) 
+	{
+		sumSquare++;
+	}
 }
 
 void World::moveFigure(const int x, const int y) 
@@ -132,6 +180,6 @@ void World::addFigure(Figure* figure)
 
 	arrSquare[figure->getArrSquareFigure(0)->ySquare][figure->getArrSquareFigure(0)->xSquare] = figure->getArrSquareFigure(0);
 	arrSquare[figure->getArrSquareFigure(1)->ySquare][figure->getArrSquareFigure(1)->xSquare] = figure->getArrSquareFigure(1);
-        arrSquare[figure->getArrSquareFigure(2)->ySquare][figure->getArrSquareFigure(2)->xSquare] = figure->getArrSquareFigure(2);
+    arrSquare[figure->getArrSquareFigure(2)->ySquare][figure->getArrSquareFigure(2)->xSquare] = figure->getArrSquareFigure(2);
 	arrSquare[figure->getArrSquareFigure(3)->ySquare][figure->getArrSquareFigure(3)->xSquare] = figure->getArrSquareFigure(3);
 }
