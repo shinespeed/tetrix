@@ -2,8 +2,7 @@
 
 Figure:: Figure() {}
 
-Figure::~Figure() 
-{}
+Figure::~Figure() {}
 
 void Figure::moveFigure(const int xFigure, const int yFigure)
 {
@@ -37,8 +36,7 @@ TFigure::TFigure(int _xFigure, int _yFigure)
 	createSquareFigure();
 }
 
-TFigure::~TFigure()
-{}
+TFigure::~TFigure() {}
 
 void TFigure::createSquareFigure() 
 {
@@ -55,8 +53,7 @@ QFigure::QFigure(int _xFigure, int _yFigure)
 	createSquareFigure();
 }
 
-QFigure::~QFigure()
-{}
+QFigure::~QFigure() {}
 
 void QFigure::createSquareFigure()
 {
@@ -73,8 +70,7 @@ IFigure::IFigure(int _xFigure, int _yFigure)
 	createSquareFigure();
 }
 
-IFigure::~IFigure()
-{}
+IFigure::~IFigure() {}
 
 void IFigure::createSquareFigure()
 {
@@ -91,8 +87,7 @@ ZFigure::ZFigure(int _xFigure, int _yFigure)
 	createSquareFigure();
 }
 
-ZFigure::~ZFigure()
-{}
+ZFigure::~ZFigure() {}
 
 void ZFigure::createSquareFigure()
 {
@@ -109,8 +104,7 @@ JFigure::JFigure(int _xFigure, int _yFigure)
 	createSquareFigure();
 }
 
-JFigure::~JFigure()
-{}
+JFigure::~JFigure() {}
 
 void JFigure::createSquareFigure()
 {
@@ -127,8 +121,7 @@ SFigure::SFigure(int _xFigure, int _yFigure)
 	createSquareFigure();
 }
 
-SFigure::~SFigure()
-{}
+SFigure::~SFigure() {}
 
 void SFigure::createSquareFigure()
 {
@@ -145,8 +138,7 @@ LFigure::LFigure(int _xFigure, int _yFigure)
 	createSquareFigure();
 }
 
-LFigure::~LFigure()
-{}
+LFigure::~LFigure() {}
 
 void LFigure::createSquareFigure()
 {
