@@ -16,10 +16,10 @@ bool World::regulationFigure(int futureX, int futureY)
 
 	for (int i = 0; i < QUANTITY_SQUARE; i++)
 	{
-	    tempX = tempFigure->getArrSquareFigure(i)->xSquare + (futureX - tempFigure->getXFigure());
-		tempY = tempFigure->getArrSquareFigure(i)->ySquare + (futureY - tempFigure->getYFigure());
-
-		if (!regulationSquare(tempX, tempY)) ++numberViolation;
+	        tempX = tempFigure->getArrSquareFigure(i)->xSquare + (futureX - tempFigure->getXFigure());
+	        tempY = tempFigure->getArrSquareFigure(i)->ySquare + (futureY - tempFigure->getYFigure());
+		
+	        if (!regulationSquare(tempX, tempY)) ++numberViolation;
 	} 
 	if (numberViolation == 0) 
 	{
