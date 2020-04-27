@@ -1,14 +1,14 @@
-#pragma once
+#ifndef FIGURE_H
+#define FIGURE_H
 
 #include "GlobalConstant.h"
 #include "Square.h"
-#include <vector>
 
 class Figure
 {
 public:
 	Figure();
-	~Figure();
+	virtual ~Figure();
 
 	int getXFigure();
 	int getYFigure();
@@ -83,3 +83,4 @@ public:
 
 	void createSquareFigure();
 };
+#endif
