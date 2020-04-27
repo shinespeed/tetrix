@@ -161,25 +161,25 @@ void World::countSumSquare(int x, int y)
 
 void World::moveFigure(const int x, const int y) 
 {
-	arrSquare[tempFigure->getArrSquareFigure(0)->ySquare][tempFigure->getArrSquareFigure(0)->xSquare] = nullptr;
-	arrSquare[tempFigure->getArrSquareFigure(1)->ySquare][tempFigure->getArrSquareFigure(1)->xSquare] = nullptr;
-	arrSquare[tempFigure->getArrSquareFigure(2)->ySquare][tempFigure->getArrSquareFigure(2)->xSquare] = nullptr;
-	arrSquare[tempFigure->getArrSquareFigure(3)->ySquare][tempFigure->getArrSquareFigure(3)->xSquare] = nullptr;
+	for (int i = 0; i < QUANTITY_SQUARE; i++)
+	{
+		arrSquare[tempFigure->getArrSquareFigure(i)->ySquare][tempFigure->getArrSquareFigure(i)->xSquare] = nullptr;
+	}
 
 	tempFigure->moveFigure(x, y);
 
-	arrSquare[tempFigure->getArrSquareFigure(0)->ySquare][tempFigure->getArrSquareFigure(0)->xSquare] = tempFigure->getArrSquareFigure(0);
-	arrSquare[tempFigure->getArrSquareFigure(1)->ySquare][tempFigure->getArrSquareFigure(1)->xSquare] = tempFigure->getArrSquareFigure(1);
-	arrSquare[tempFigure->getArrSquareFigure(2)->ySquare][tempFigure->getArrSquareFigure(2)->xSquare] = tempFigure->getArrSquareFigure(2);
-	arrSquare[tempFigure->getArrSquareFigure(3)->ySquare][tempFigure->getArrSquareFigure(3)->xSquare] = tempFigure->getArrSquareFigure(3);
+	for (int i = 0; i < QUANTITY_SQUARE; i++)
+	{
+		arrSquare[tempFigure->getArrSquareFigure(i)->ySquare][tempFigure->getArrSquareFigure(i)->xSquare] = tempFigure->getArrSquareFigure(i);
+	}
 }
 
 void World::addFigure(Figure* figure) 
 {
 	tempFigure = figure;
 
-	arrSquare[figure->getArrSquareFigure(0)->ySquare][figure->getArrSquareFigure(0)->xSquare] = figure->getArrSquareFigure(0);
-	arrSquare[figure->getArrSquareFigure(1)->ySquare][figure->getArrSquareFigure(1)->xSquare] = figure->getArrSquareFigure(1);
-        arrSquare[figure->getArrSquareFigure(2)->ySquare][figure->getArrSquareFigure(2)->xSquare] = figure->getArrSquareFigure(2);
-	arrSquare[figure->getArrSquareFigure(3)->ySquare][figure->getArrSquareFigure(3)->xSquare] = figure->getArrSquareFigure(3);
+	for (int i = 0; i < QUANTITY_SQUARE; i++) 
+	{
+		arrSquare[figure->getArrSquareFigure(i)->ySquare][figure->getArrSquareFigure(i)->xSquare] = figure->getArrSquareFigure(i);
+	}
 }
