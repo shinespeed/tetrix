@@ -1,11 +1,11 @@
-// Copyright 2009-2014 Blam BaseApps, Inc. All Rights Reserved.
-
-#pragma once
+#ifndef BASEAPP_H
+#define BASEAPP_H
 
 #include <iostream>
 #include <Windows.h>
 #include <vector>
 #include <string>
+#include "BaseApp.h"
 
 using namespace std;
 
@@ -23,27 +23,21 @@ private:
 	void Render();
 
 public:
-	//размеры области вывода по горизонтали и вертикали в символах
 	const int X_SIZE;
 	const int Y_SIZE;
 
-	//аргументами €вл€ютс€ размеры области вывода по горизонтали и вертикали в символах
-	BaseApp(int xSize=100, int ySize=80);
+	bool gameCheck;
+
+	BaseApp(int xSize= WINDOW_SIZE_X, int ySize= WINDOW_SIZE_Y);
 	virtual ~BaseApp();
 
-	//запускает игровой цикл
 	void Run();
 
-	//можно заполнить x,y-символ экрана определенным символом, или считать его
 	void SetChar(int x, int y, wchar_t c);
+	void SetString(int x, int y, string str);
 	wchar_t GetChar(int x, int y);
 
-	/*эта функци€ вызываетс€ каждую игровую итерацию, еЄ можно переопределить, в наследнике класса.
-	в неЄ приходит deltaTime - разница во времени между предыдущей итерацией и этой, в секундах*/
-	virtual void Update (float deltaTime){}
-	/*эта функци€ вызываетс€ при нажатии клавиши на клавиатуре, в неЄ приходит код клавиши - btnCode.
-	если использовать стрелки или функциональные клавиши, то придет общее дл€ них число, например 224, а следующее за ним - 
-	будет уже непосредственно код самой клавиши, его можно получить, вызвав метод getch().
-	ћетод KeyPressed так же можно переопределить в наследнике*/
-	virtual void KeyPressed (int btnCode){}
+	virtual void Update(float deltaTime) = 0;
+	virtual void KeyPressed(int btnCode) = 0;
 };
+#endif
