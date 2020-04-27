@@ -139,7 +139,7 @@ void World::checkSumSquareHorizon()
 
 void World::delHorizonSquare(int y) 
 {
-	sumPoint += incPoint;
+	sumPoint += INC_POINT;
 	for (int i = y; i > 1; --i) 
 	{
 		for (int j = 0; j < ARRAY_X; ++j) 
