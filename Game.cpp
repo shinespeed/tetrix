@@ -1,3 +1,5 @@
+// Copyright 2009-2014 Blam BaseApps, Inc. All Rights Reserved.
+
 #include "Game.h"
 
 enum numberFigure
@@ -53,7 +55,7 @@ void Game::gameOverCheck(Figure* figure)
 	int tempX(0);
 	int tempY(0);
 
-	for (int i = 0; i < QUANTITY_SQUARE; i++) 
+	for (int i = 0; i < QUANTITY_SQUARE; ++i) 
 	{
 		tempX = figure->getArrSquareFigure(i)->xSquare;
 		tempY = figure->getArrSquareFigure(i)->ySquare;
@@ -120,7 +122,7 @@ void Game::start()
 	{
 		if (world.regulationFigure(moveX, moveY + 1))
 		{
-			moveY++;
+			++moveY;
 		}
 		else
 		{
@@ -136,15 +138,15 @@ void Game::renderFutureFigure()
 	int tempX(0);
 	int tempY(0);
 
-	for (int i = 0; i < QUANTITY_SQUARE; i++)
+	for (int i = 0; i < QUANTITY_SQUARE; ++i)
 	{
-		for (int j = 0; j < QUANTITY_SQUARE; j++)
+		for (int j = 0; j < QUANTITY_SQUARE; ++j)
 		{
 			SetChar(i + FUTURE_FIGURE_X - 1, j + FUTURE_FIGURE_Y, 0);
 		}
 	}
 
-	for (int i = 0; i < QUANTITY_SQUARE; i++) 
+	for (int i = 0; i < QUANTITY_SQUARE; ++i) 
 	{
 
 		tempX = furureFigure->getArrSquareFigure(i)->xSquare - START_COORD_X;
@@ -156,9 +158,9 @@ void Game::renderFutureFigure()
 
 void Game::graphBorders()
 {
-	for (int i = BORDER_START_X; i <= BORDER_END_X; i++)
+	for (int i = BORDER_START_X; i <= BORDER_END_X; ++i)
 	{
-		for (int j = BORDER_START_Y; j <= BORDER_END_Y; j++)
+		for (int j = BORDER_START_Y; j <= BORDER_END_Y; ++j)
 		{
 			if (i == BORDER_START_X || j == BORDER_START_Y || i == BORDER_END_X || j == BORDER_END_Y || (i == BORDER_1_X) && (j <= BORDER_1_Y) || (j == BORDER_2_Y))
 			{
