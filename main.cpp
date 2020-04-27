@@ -2,8 +2,10 @@
 
 #include "Game.h"
 
-void main ()
+int main()
 {
 	Game app;
 	app.Run();
+
+	return 0;
 }
