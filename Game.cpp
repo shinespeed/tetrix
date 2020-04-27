@@ -30,7 +30,7 @@ Game::~Game()
 
 void Game::KeyPressed(int btnCode)
 {
-	if (btnCode == 32) 
+	if (btnCode == SPACE) 
 	{
 		world.rotationFigure();
 	}
