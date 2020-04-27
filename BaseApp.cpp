@@ -1,5 +1,3 @@
-// Copyright 2009-2014 Blam BaseApps, Inc. All Rights Reserved.
-
 #include "Game.h"
 #include <algorithm>
 #include <time.h>
@@ -112,7 +110,7 @@ void BaseApp::Run()
 		{
 			KeyPressed (_getch());
 			if (!FlushConsoleInputBuffer(mConsoleIn))
-				cout<<"FlushConsoleInputBuffer failed with error "<<GetLastError();
+			cout<<"FlushConsoleInputBuffer failed with error "<<GetLastError();
 		}
 
 		Update(static_cast<float>(deltaTime) / 1000.0f);
@@ -122,7 +120,7 @@ void BaseApp::Run()
 		while (true)
 		{
 			deltaTime = timer.Now();
-			if (deltaTime > 20)
+			if (deltaTime > 20) 
 				break;
 		}
 
