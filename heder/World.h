@@ -1,4 +1,5 @@
-#pragma once
+#ifndef WORLD_H
+#define WORLD_H
 
 #include "GlobalConstant.h"
 #include "Figure.h"
@@ -12,9 +13,10 @@ public:
 	~World();
 
 	Square* arrSquare[ARRAY_Y][ARRAY_X];
-
 	Figure* tempFigure;
-	Figure* buffFigure;
+
+	int sumSquare;
+	int sumPoint;
 
 	bool regulationFigure(int futureX, int futureY);
 	bool regulationSquare(int squarefutureX, int squarefutureY);
@@ -22,9 +24,15 @@ public:
 
 	void moveFigure(const int x, const int y);
 
+	void checkSumSquareHorizon();
+	void countSumSquare(int x, int y);
+	void delHorizonSquare(int y);
+
 	void calculationFutureXY(int &futureX, int &futureY, const int index);
 	void rotationFigure();
 	void rotationMatrixSquare(const int index, int &numberViolation);
 
 	void addFigure(Figure* figure);
 };
+
+#endif
