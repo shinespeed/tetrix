@@ -2,6 +2,8 @@
 
 #pragma once
 
+#include <cstdlib>
+#include <ctime>
 #include "GlobalConstant.h"
 #include "BaseApp.h"
 #include "World.h"
@@ -16,13 +18,16 @@ public:
 
 	virtual void KeyPressed(int btnCode);
 	virtual void Update(float deltaTime);
-private:
 
+private:
 	World world;
 
 	void Render();
 	void start();
+	void graphBorders();
+
 	void createFigure();
+	Figure* randomFigure();
 
 	bool resolutionCreateFigure;
 	bool mDirection;
