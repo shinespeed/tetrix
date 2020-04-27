@@ -12,6 +12,11 @@ const float GAME_ITERATION = 0.3;
 
 const int INC_POINT = 15;
 
+//key code
+const int RIGHT = 77;
+const int LEFT = 75;
+const int DOWN = 80;
+
 const int START_COORD_X = 7;
 const int START_COORD_Y = 0;
 
