@@ -10,7 +10,7 @@ World::~World()
 	delete tempFigure;
 	for (int i = 0; i < ARRAY_Y; ++i) 
 	{
-		for (int j = 0; j < ARRAY_X; j++) 
+		for (int j = 0; j < ARRAY_X; ++j) 
 		{
 			if (arrSquare[i][j] != nullptr) 
 			{
@@ -26,7 +26,7 @@ bool World::regulationFigure(int futureX, int futureY)
 	int tempY = 0;
 	int numberViolation = 0;
 
-	for (int i = 0; i < QUANTITY_SQUARE; i++)
+	for (int i = 0; i < QUANTITY_SQUARE; ++i)
 	{
 	    tempX = tempFigure->getArrSquareFigure(i)->xSquare + (futureX - tempFigure->getXFigure());
 		tempY = tempFigure->getArrSquareFigure(i)->ySquare + (futureY - tempFigure->getYFigure());
@@ -139,7 +139,7 @@ void World::checkSumSquareHorizon()
 
 void World::delHorizonSquare(int y) 
 {
-	sumPoint += 15;
+	sumPoint += incPoint;
 	for (int i = y; i > 1; --i) 
 	{
 		for (int j = 0; j < ARRAY_X; ++j) 
@@ -180,6 +180,6 @@ void World::addFigure(Figure* figure)
 
 	arrSquare[figure->getArrSquareFigure(0)->ySquare][figure->getArrSquareFigure(0)->xSquare] = figure->getArrSquareFigure(0);
 	arrSquare[figure->getArrSquareFigure(1)->ySquare][figure->getArrSquareFigure(1)->xSquare] = figure->getArrSquareFigure(1);
-    arrSquare[figure->getArrSquareFigure(2)->ySquare][figure->getArrSquareFigure(2)->xSquare] = figure->getArrSquareFigure(2);
+        arrSquare[figure->getArrSquareFigure(2)->ySquare][figure->getArrSquareFigure(2)->xSquare] = figure->getArrSquareFigure(2);
 	arrSquare[figure->getArrSquareFigure(3)->ySquare][figure->getArrSquareFigure(3)->xSquare] = figure->getArrSquareFigure(3);
 }
